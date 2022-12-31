@@ -1,4 +1,4 @@
-package co.kr.study;
+package kr.co.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

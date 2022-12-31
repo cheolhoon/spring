@@ -1,4 +1,4 @@
-package co.kr.study;
+package kr.co.controller;
 
 import java.sql.Connection;
 
