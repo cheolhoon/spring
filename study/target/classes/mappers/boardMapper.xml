@@ -23,15 +23,22 @@
 		FROM MP_BOARD
 		ORDER BY BNO DESC
 	</select>
-	
+
 	<select id="read" parameterType="int" resultType="kr.co.vo.BoardVO">
-		SELECT	BNO
-			  , TITLE
-			  , CONTENT
-			  , WRITER
-			  , REGDATE
-		 FROM MP_BOARD
-		 WHERE BNO = #{bno}
+		SELECT BNO
+		, TITLE
+		, CONTENT
+		, WRITER
+		, REGDATE
+		FROM MP_BOARD
+		WHERE BNO = #{bno}
 	</select>
+
+	<update id="update" parameterType="kr.co.vo.BoardVO">
+		UPDATE MP_BOARD
+		SET TITLE = #{title},
+		CONTENT = #{content}
+		WHERE BNO = #{bno}
+	</update>
 
 </mapper>
