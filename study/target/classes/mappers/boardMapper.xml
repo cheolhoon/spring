@@ -40,5 +40,11 @@
 		CONTENT = #{content}
 		WHERE BNO = #{bno}
 	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE 
+		  FROM MP_BOARD
+		 WHERE BNO = #{bno}
+	</delete>
 
 </mapper>

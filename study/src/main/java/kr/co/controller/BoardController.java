@@ -78,5 +78,15 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
+	
+	// 게시판 삭제
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String delete(BoardVO boardVO) throws Exception{
+		logger.info("delete");
+		
+		service.delete(boardVO.getBno());
+		
+		return "redirect:/board/list";
+	}
 
 }
