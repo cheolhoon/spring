@@ -28,6 +28,13 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectList("boardMapper.list");
 
 	}
+	
+	// 게시물 조회
+	@Override
+	public BoardVO read(int bno) throws Exception {
+			
+		return sqlSession.selectOne("boardMapper.read", bno);
+	}
 
 }
 

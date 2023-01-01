@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <!-- forEach와 c:out를 사용하기 위해  -->
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> <!-- fmt날짜 포맷을 사용하기 위해 -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- forEach와 c:out를 사용하기 위해  -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- fmt날짜 포맷을 사용하기 위해 -->
 <html>
 <head>
 <title>게시판</title>
@@ -29,7 +31,9 @@
 					<c:forEach items="${list}" var="list">
 						<tr>
 							<td><c:out value="${list.bno}" /></td>
-							<td><c:out value="${list.title}" /></td>
+							<td>
+								<a href="/board/readView?bno=${list.bno}"><c:out value="${list.title}" /></a>
+							</td>
 							<td><c:out value="${list.writer}" /></td>
 							<td><fmt:formatDate value="${list.regdate}"
 									pattern="yyyy-MM-dd" /></td>
