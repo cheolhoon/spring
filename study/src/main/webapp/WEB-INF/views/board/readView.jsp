@@ -5,7 +5,7 @@
 <html>
 <head>
 <!-- 수정, 삭제, 취소 버튼은 jquery로.. > jqueryCDN을 추가  -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>게시판</title>
 </head>
 
@@ -19,17 +19,20 @@
 			formObj.attr("method", "get");
 			formObj.submit();
 		})
-		
+
 		// 삭제
-		$(".delete_btn").on("click", function(){
-			formObj.attr("action", "/board/delete");
-			formObj.attr("method", "post");
-			formObj.submit();
+		$(".delete_btn").on("click", function() {
+			var deleteYN = confirm("정말 삭제하시겠습니까?");
+			if(deleteYN == true){
+				formObj.attr("action", "/board/delete");
+				formObj.attr("method", "post");
+				formObj.submit();
+			}
 		})
-		
+
 		// 취소
-		$(".list_btn").on("click", function(){
-			
+		$(".list_btn").on("click", function() {
+
 			location.href = "/board/list";
 		})
 	})
@@ -43,7 +46,9 @@
 		</header>
 		<hr />
 
-		<nav>홈 - 글 작성</nav>
+		<div>
+			<%@include file="nav.jsp"%>
+		</div>
 		<hr />
 
 		<section id="container">
@@ -77,7 +82,7 @@
 			<div>
 				<button type="submit" class="update_btn">수정</button>
 				<button type="submit" class="delete_btn">삭제</button>
-				<button type="submit" class="list_btn">목록</button>	
+				<button type="submit" class="list_btn">목록</button>
 			</div>
 			</form>
 		</section>

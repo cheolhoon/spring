@@ -15,7 +15,9 @@
 		</header>
 		<hr />
 
-		<nav>홈 - 글 작성</nav>
+		<div>
+			<%@include file="nav.jsp"%>
+		</div>
 		<hr />
 
 		<section id="container">
@@ -31,9 +33,8 @@
 					<c:forEach items="${list}" var="list">
 						<tr>
 							<td><c:out value="${list.bno}" /></td>
-							<td>
-								<a href="/board/readView?bno=${list.bno}"><c:out value="${list.title}" /></a>
-							</td>
+							<td><a href="/board/readView?bno=${list.bno}"><c:out
+										value="${list.title}" /></a></td>
 							<td><c:out value="${list.writer}" /></td>
 							<td><fmt:formatDate value="${list.regdate}"
 									pattern="yyyy-MM-dd" /></td>
